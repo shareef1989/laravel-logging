@@ -1,0 +1,19 @@
+{
+    "name": "elsayednofal/logging",
+    "description": "loging action on models",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "elsayed nofal",
+            "email": "elsayed_nofal@ymail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "ElsayedNofal\\Logging\\": "src/"
+        }
+    },
+    "require": {}
+}
