@@ -20,7 +20,7 @@
                     <h3 class="text-center text-primary">After</h3>
                     <hr>
                     @foreach(collect($after)->toArray() as $key=>$value)
-                        <p  class="p-1 @if($befor->$key != $value) bg-warning text-light @endif" ><span class="font-weight-bold text-info">{{$key}}</span> : <span>{{$value}}</span></p>
+                        <p  class="p-1 @if(is_object($befor) && $befor->$key != $value) bg-warning text-light @endif" ><span class="font-weight-bold text-info">{{$key}}</span> : <span>{{$value}}</span></p>
                     @endforeach
                 </div>
             </div>
