@@ -1,4 +1,4 @@
-# logging
+# Logging
 log changes on each model and db row
 
 
