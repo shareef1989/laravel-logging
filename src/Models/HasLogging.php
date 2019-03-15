@@ -15,7 +15,7 @@ trait HasLogging {
 
         parent::created(function($model){
             $log=new Logging();
-            $log->table=$model->table;
+            $log->table=$model->getTable();
             $log->row_id=$model->id;
             $log->after=$model;
             $log->user_id=Session::get(config('db-logging.user.session'))->id;
@@ -27,7 +27,7 @@ trait HasLogging {
 
         parent::updating(function($model){
             $log=new Logging();
-            $log->table=$model->table;
+            $log->table=$model->getTable();
             $log->row_id=$model->id;
             $log->before=$model->getOriginal();
             $log->user_id=Session::get(config('db-logging.user.session'))->id;
@@ -44,7 +44,7 @@ trait HasLogging {
 
         parent::deleting(function($model){
             $log=new Logging();
-            $log->table=$model->table;
+            $log->table=$model->getTable();
             $log->row_id=$model->id;
             $log->before=$model;
             $log->user_id=Session::get(config('db-logging.user_session'))->id;
