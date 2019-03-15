@@ -1,9 +1,9 @@
-# logging
+# Logging
 log changes on each model and db row
 
 
 ## Installation
-- `composer require elsayednofal/logging`
+- `composer require elsayednofal/logging:dev-master`
 - add service provider to config/app.php
     `ElsayedNofal\Logging\LoggingServiceProvider::class,`
 - run `php artisan migrate`
