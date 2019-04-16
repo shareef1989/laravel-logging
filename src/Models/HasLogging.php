@@ -47,7 +47,7 @@ trait HasLogging {
             $log->table=$model->getTable();
             $log->row_id=$model->id;
             $log->before=$model;
-            $log->user_id=Session::get(config('db-logging.user_session'))->id;
+            $log->user_id=Session::get(config('db-logging.user.session'))->id;
             $log->action="delete";
             $log->save();
             $max_life=Carbon::now()->subDays(config('db-logging.life_time'));
