@@ -12,7 +12,7 @@
                     <div class="col-md-6">
                         <h3 class="text-center text-primary">@lang('Before')</h3>
                         <hr>
-                        @foreach(collect($befor)->toArray() as $key=>$value)
+                        @foreach(collect($before)->toArray() as $key=>$value)
                             <p class="p-1"><span class="font-weight-bold text-info">{{$key}}</span> :
                                 <span>{{$value}}</span></p>
                         @endforeach
@@ -21,7 +21,7 @@
                         <h3 class="text-center text-primary">@lang('After')</h3>
                         <hr>
                         @foreach(collect($after)->toArray() as $key=>$value)
-                            <p class="p-1 @if(is_object($befor) && $befor->$key != $value) bg-warning text-light @endif">
+                            <p class="p-1 @if(is_object($before) && $before->$key != $value) bg-warning text-light @endif">
                                 <span class="font-weight-bold text-info">{{$key}}</span> : <span>{{$value}}</span>
                             </p>
                         @endforeach
