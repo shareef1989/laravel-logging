@@ -37,8 +37,10 @@
                         </select>
                     </div>
                     <div class="col-md-2">
-                        
-                        <button type="submit" class="btn btn-small btn-primary" style="margin-top:25px;"><i class="fas fa-search"></i> Search</button>
+
+                        <button type="submit" class="btn btn-small btn-primary" style="margin-top:25px;"><i
+                                    class="fas fa-search"></i> Search
+                        </button>
                     </div>
                 </div>
             </form>
@@ -58,18 +60,20 @@
                         @php
                             $field=config('db-logging.user.display_field');
                         @endphp
-                        <td>{{ $row->user->$field }}</td> 
-                        <td>{{ $row->action }}</td>  
-                        <td>{{ $row->created_at }}</td>  
+                        <td>{{ $row->user->$field }}</td>
+                        <td>{{ $row->action }}</td>
+                        <td>{{ $row->created_at }}</td>
                         <td>
-                            <button class="btn btn-small btn-outline-info" type="button"  data-toggle="modal" data-target="#diff-model{{$row->id}}"><i class="fas fa-exchange-alt"></i> diffrent</button>
-                            @include('backend.logging.modal',['befor'=>$row->before,'after'=>$row->after,'id'=>"diff-model".$row->id])
+                            <button class="btn btn-small btn-outline-info" type="button" data-toggle="modal"
+                                    data-target="#diff-model{{$row->id}}"><i class="fas fa-exchange-alt"></i> different
+                            </button>
+                            @include('backend.logging.modal',['before'=>$row->before,'after'=>$row->after,'id'=>"diff-model".$row->id])
                         </td>
 
                     </tr>
                 @endforeach
             </table>
-        <div>
-    </div>
+            <div>
+            </div>
 
 @endsection
