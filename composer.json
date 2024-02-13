@@ -1,18 +1,18 @@
 {
-    "name": "elsayednofal/logging",
+    "name": "shareef_morad/logging",
     "description": "loging action on models",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "elsayed nofal",
-            "email": "elsayed_nofal@ymail.com"
+            "name": "Shareef Morad",
+            "email": "shareef1989@gmail.com"
         }
     ],
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "ElsayedNofal\\Logging\\": "src/"
+            "Shareef_Morad\\Logging\\": "src/"
         }
     },
     "require": {}
