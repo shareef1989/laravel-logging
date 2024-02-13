@@ -17,6 +17,7 @@ trait HasLogging {
             $log=new Logging();
             $log->table=$model->getTable();
             $log->row_id=$model->id;
+            $model->setAppends([]);
             $log->after=$model;
             $log->user_id=Session::get(config('db-logging.user.session'))->id;
             $log->action="create";
@@ -38,6 +39,7 @@ trait HasLogging {
         parent::updated(function($model){
             $log= Logging::where('action','updating')->orderBy('id','desc')->first();
             $log->action='update';
+            $model->setAppends([]);
             $log->after=$model;
             $log->save();
         });
@@ -46,6 +48,7 @@ trait HasLogging {
             $log=new Logging();
             $log->table=$model->getTable();
             $log->row_id=$model->id;
+            $model->setAppends([]);
             $log->before=$model;
             $log->user_id=Session::get(config('db-logging.user.session'))->id;
             $log->action="delete";
