@@ -13,7 +13,7 @@ return [
     */
     'user'         => [
         'model'         => 'App\Models\User',
-        'display_field' => 'user_name'
+        'display_field' => 'name'
     ],
 
     /*
@@ -38,7 +38,7 @@ return [
     'prefix'       => 'backend',
 
     // middleware for url ./backend/logging
-    'middlewares'  => [
+    'middleware'  => [
         'web',
     ],
 
