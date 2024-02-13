@@ -3,9 +3,9 @@ log changes on each model and db row
 
 
 ## Installation
-- `composer require elsayednofal/logging:dev-master`
+- `composer require shareef_morad/logging:dev-master`
 - add service provider to config/app.php
-    `ElsayedNofal\Logging\LoggingServiceProvider::class,`
+    `Shareef_Morad\Logging\LoggingServiceProvider::class,`
 - run `php artisan migrate`
 - run `php artisan vendor:publish` and choose package id
 
@@ -21,7 +21,7 @@ log changes on each model and db row
     namespace App\Models;
 
     use Illuminate\Database\Eloquent\Model;
-    use ElsayedNofal\Logging\Models\HasLogging;
+    use Shareef_Morad\Logging\Models\HasLogging;
 
     class Slider extends Model{
         use HasLogging;

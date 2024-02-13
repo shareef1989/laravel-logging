@@ -19,7 +19,7 @@ class CreateLoggingTable extends Migration {
 			$table->integer('row_id')->nullable();
 			$table->text('before', 65535)->nullable();
 			$table->text('after', 65535)->nullable();
-			$table->integer('user_id')->nullable();
+			$table->unsignedInteger('user_id')->nullable();
 			$table->timestamps();
 			$table->string('action', 100);
 		});

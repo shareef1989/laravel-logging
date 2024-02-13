@@ -1,6 +1,6 @@
 {
     "name": "shareef_morad/logging",
-    "description": "loging action on models",
+    "description": "logging models actions",
     "type": "library",
     "license": "MIT",
     "authors": [

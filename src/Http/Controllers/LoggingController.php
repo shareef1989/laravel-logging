@@ -1,10 +1,10 @@
 <?php
 
-namespace ElsayedNofal\Logging\Http\Controllers;
+namespace Shareef_Morad\Logging\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use ElsayedNofal\Logging\Models\Logging;
+use Shareef_Morad\Logging\Models\Logging;
 
 class LoggingController extends Controller{
 

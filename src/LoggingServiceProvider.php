@@ -1,6 +1,6 @@
 <?php
 
-namespace ElsayedNofal\Logging;
+namespace Shareef_Morad\Logging;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;

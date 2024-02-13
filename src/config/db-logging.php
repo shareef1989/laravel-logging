@@ -6,21 +6,20 @@ return [
     * enable and disable db log
     * you can add DB_LOGGING to .env file
     */
-    'enable'=>env('DB_LOGGING',TRUE),
+    'enable'       => env('DB_LOGGING', true),
 
     /*
     * user date to inject for each action
     */
-    'user'=>[
-        'session'=>'backend_user',
-        'model'=>'App\Models\User',
-        'display_field'=>'user_name'
+    'user'         => [
+        'model'         => 'App\Models\User',
+        'display_field' => 'user_name'
     ],
 
     /*
-    * max time to keep log in db 
+    * max time in days to keep log in db 
     */
-    'life_time'=>30,
+    'life_time'    => 30,
 
 
     /*
@@ -29,20 +28,19 @@ return [
     */
 
     // master backend layout to work with it
-    'layout'=>'backend.layout.master',
+    'layout'       => 'backend.layout.master',
 
     // content area in layout to display data
-    'content_area'=>'content',
+    'content_area' => 'content',
 
 
     // url prefix
-    'prefix'=>'backend',
+    'prefix'       => 'backend',
 
     // middleware for url ./backend/logging
-    'middlewares'=>[
+    'middlewares'  => [
         'web',
     ],
-
 
 
 ];

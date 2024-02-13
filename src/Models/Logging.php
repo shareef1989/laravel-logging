@@ -1,6 +1,6 @@
 <?php
 
-namespace ElsayedNofal\Logging\Models;
+namespace Shareef_Morad\Logging\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
