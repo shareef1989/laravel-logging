@@ -29,7 +29,7 @@ class LoggingController extends Controller
         $tables = Logging::groupBy('table')->pluck('table');
         
         $userModelClass = config('db-logging.user.model');
-        $users = $userModelClass::pluck(config('db-logging.user.display_field'));
+        $users = app($userModelClass)->pluck(config('db-logging.user.display_field'));
         
         $data = [
             'users'  => $users,

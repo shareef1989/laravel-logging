@@ -43,7 +43,11 @@ trait HasLogging
 
         static::updated(function ($model) {
             $model->setAppends([]);
-            $log         = Logging::where('action', 'updating')->orderBy('id', 'desc')->first();
+            $log = Logging::where('action', 'updating')
+                ->where('table', $model->getTable())
+                ->where('row_id', $model->id)
+                ->orderBy('id', 'desc')
+                ->first();
             if ($log) {
                 $log->action = 'update';
                 $log->after  = $model;
