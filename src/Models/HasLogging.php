@@ -20,7 +20,7 @@ trait HasLogging
             $model->setAppends([]);
             
             $log         = new Logging();
-            $log->table  = $model->getTable();
+            $log->setAttribute('table', $model->getTable());
             $log->row_id = $model->id;
             $log->after   = $model;
             $log->user_id = auth()->check() ? auth()->id() : null;
@@ -33,7 +33,7 @@ trait HasLogging
 
         static::updating(function ($model) {
             $log          = new Logging();
-            $log->table   = $model->getTable();
+            $log->setAttribute('table', $model->getTable());
             $log->row_id  = $model->id;
             $log->before  = $model->getOriginal();
             $log->user_id = auth()->check() ? auth()->id() : null;
@@ -62,7 +62,7 @@ trait HasLogging
             $model->setAppends([]);
 
             $log = new Logging();
-            $log->table   = $model->getTable();
+            $log->setAttribute('table', $model->getTable());
             $log->row_id  = $model->id;
             $log->before  = $model;
             $log->user_id = auth()->check() ? auth()->id() : null;
