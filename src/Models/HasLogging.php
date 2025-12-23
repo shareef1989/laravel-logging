@@ -43,9 +43,12 @@ trait HasLogging
 
         static::updated(function ($model) {
             $model->setAppends([]);
+            $userId = auth()->check() ? auth()->id() : null;
             $log = Logging::where('action', 'updating')
                 ->where('table', $model->getTable())
                 ->where('row_id', $model->id)
+                ->where('user_id', $userId)
+                ->where('created_at', '>=', Carbon::now()->subMinutes(5))
                 ->orderBy('id', 'desc')
                 ->first();
             if ($log) {
