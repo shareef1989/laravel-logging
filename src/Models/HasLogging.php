@@ -7,16 +7,16 @@ use Shareef_Morad\Logging\Models\Logging;
 
 trait HasLogging
 {
-
-    static function boot()
+    /**
+     * Boot the HasLogging trait for a model.
+     */
+    protected static function bootHasLogging(): void
     {
-        parent::boot();
         if (!config('db-logging.enable')) {
-            return false;
+            return;
         }
 
-        parent::created(function ($model) {
-        
+        static::created(function ($model) {
             $model->setAppends([]);
             
             $log         = new Logging();
@@ -26,11 +26,12 @@ trait HasLogging
             $log->user_id = auth()->check() ? auth()->id() : null;
             $log->action  = "create";
             $log->save();
+            
             $max_life = Carbon::now()->subDays(config('db-logging.life_time'));
             Logging::whereDate('created_at', '<', $max_life)->delete();
         });
 
-        parent::updating(function ($model) {
+        static::updating(function ($model) {
             $log          = new Logging();
             $log->table   = $model->getTable();
             $log->row_id  = $model->id;
@@ -40,16 +41,17 @@ trait HasLogging
             $log->save();
         });
 
-        parent::updated(function ($model) {
+        static::updated(function ($model) {
             $model->setAppends([]);
             $log         = Logging::where('action', 'updating')->orderBy('id', 'desc')->first();
-            $log->action = 'update';
-            $log->after  = $model;
-            $log->save();
+            if ($log) {
+                $log->action = 'update';
+                $log->after  = $model;
+                $log->save();
+            }
         });
 
-        parent::deleting(function ($model) {
-            
+        static::deleting(function ($model) {
             $model->setAppends([]);
 
             $log = new Logging();
@@ -59,10 +61,9 @@ trait HasLogging
             $log->user_id = auth()->check() ? auth()->id() : null;
             $log->action  = "delete";
             $log->save();
+            
             $max_life = Carbon::now()->subDays(config('db-logging.life_time'));
             Logging::whereDate('created_at', '<', $max_life)->delete();
         });
     }
-
-
 }

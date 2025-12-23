@@ -1,10 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 
-Route::group([
-    'prefix'     => config('db-logging.prefix'),
-    'namespace'  => 'Shareef_Morad\Logging\Http\Controllers',
-    'middleware' => config('db-logging.middleware')
-], function () {
-    Route::get('logging', 'LoggingController@index');
-});
+Route::prefix(config('db-logging.prefix', 'backend'))
+    ->middleware(config('db-logging.middleware', ['web']))
+    ->group(function () {
+        Route::get('logging', [\Shareef_Morad\Logging\Http\Controllers\LoggingController::class, 'index'])
+            ->name('logging.index');
+    });
